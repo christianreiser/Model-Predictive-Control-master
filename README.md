@@ -6,7 +6,7 @@ The goal of this project is to use model predictive control to drive a car in th
 ## MPC
 ### Model State and Update Equations (Vehicle Dynamics)
 The 4 components of the state are:
-(images_for_readme/state_equations.png)
+![](images_for_readme/state_equations.png)
   * x:  x-position
   * y:  y-position
   * ψ:  vehicle orientation
@@ -15,31 +15,33 @@ The 4 components of the state are:
 
 ### Actuators
 Actuators control the system. Here they are
+
     * a: acceleration. In a manual car positive acceleration means using the gas pedal and a negative acceleration means using the brake pedal.
     * δ: steering angle. (Steering wheel)
 
 ### N & dt
-* N is the number of timesteps the model predicts ahead. A high valure for N leads to a futher prediction for the future.
-* dt is the timedifference between two timesteps. 
+* N is the number of timesteps the model predicts ahead. A high value for N leads to a further prediction for the future.
+* dt is the time difference between two time steps. 
 A low dt leads to frequent reevaluations of the actuators and a shorter prediction for the future. 
-So ideally we use a small dt for great accucary and a big value for N to compencate the loss in predicting further.
+So ideally we use a small dt for great accuracy and a big value for N to compensate the loss in predicting further.
 However, a bigger value for N is computationally more expensive.
 
 ### Tuning N and dt
-* I started with a time horizon (T=dt*N=0.1*10) of one second and after tuning other parameters the model was able to get through the track. Later on I tried to optimize for speed. Then the model had more difficulty. It seemed like the problem is, that the model can't pedict far enough into the future. Consequently, I wanted a longer time horizon and chose a higher value for N and tried 40. This result was much worse and I tried 20 which was great. I also tried values around 20, but 20 had the best results.
-Then I tried to tune dt. Reducing dt to 0.05 lead to driving like a jerk, with values for N smaller than 20 and also N greater than 20. Next, I tried dt=0.2 which seemed unresponsive. The car steered to late.
-Due to this testing I settled on N=20 and dt=0.1. Probably, I haven't found the optimum. There is more potential when tuning N & dt together with other parameters like cte or epte.
-Note that the optimum for the parameters, especially N, might be related to the computer hardware. My laptop has no graphic chip and a medium CPU. With less computing power the parameters might need to be adapted conservatively. While more computing power could enable more agressive driving.
+* I started with a time horizon (T=dt*N=0.1*10) of one second and after tuning other parameters the model was able to get through the track. Later on I tried to optimize for speed. Then the model had more difficulty. It seemed like the problem is, that the model can't predict far enough into the future. Consequently, I wanted a longer time horizon and chose a higher value for N and tried 40. This result was much worse and I tried 20 which was great. I also tried values around 20, but 20 had the best results.
+* Then I tried to tune dt. Reducing dt to 0.05 lead to driving like a jerk, with values for N smaller than 20 and also N greater than 20. Next, I tried dt=0.2 which seemed unresponsive. The car steered to late.
+Due to this testing, I settled on N=20 and dt=0.1. Probably, I haven't found the optimum. There is more potential when tuning N & dt together with other parameters like cte or epte.
+Note that the optimum for the parameters, especially N, might be related to the computer hardware. My laptop has no graphic chip and a medium CPU. With less computing power the parameters might need to be adapted conservatively. While more computing power could enable more aggressive driving.
 
 
 ### Other parameters
-All parameters are stored in `src/MPC.h`. They where all tuned manually with the compormise of a smooth ride while also going fast.
+All parameters are stored in `src/MPC.h`. They were all tuned manually with the compromise of a smooth ride while also going fast.
 They could be optimized for a racing style or a more careful ride.
 
 
 ### Latency
-In order to simulate a more realistic model of a car I introduced latency. It should simulate delays in the physical world like a delay in a actuator. To handle this delay like shifted the actual state of the vehicle 100ms into the future.
----
+
+In order to simulate a more realistic model of a car, I introduced latency. It should simulate delays in the physical world like a delay in an actuator. To handle this delay like shifted the actual state of the vehicle 100ms into the future.
+
 
 ## Dependencies
 
@@ -153,7 +155,7 @@ that students don't feel pressured to use one IDE or another.
 However! I'd love to help people get up and running with their IDEs of choice.
 If you've created a profile for an IDE that you think other students would
 appreciate, we'd love to have you add the requisite profile files and
-instructions to ide_profiles/. For example if you wanted to add a VS Code
+instructions to ide_profiles/. For example, if you wanted to add a VS Code
 profile, you'd add:
 
 * /ide_profiles/vscode/.vscode
