@@ -16,8 +16,13 @@ The 4 components of the state are:
 ### Actuators
 Actuators control the system. Here they are
 
-    * a: acceleration. In a manual car positive acceleration means using the gas pedal and a negative acceleration means using the brake pedal.
-    * δ: steering angle. (Steering wheel)
+* a: acceleration. In a manual car positive acceleration means using the gas pedal and a negative acceleration means using the brake pedal.
+* δ: steering angle. (Steering wheel)
+
+### Errors
+cte and errorψ were used to build the cost function for the MPC. The updateequations are:
+
+![](images_for_readme/equation.png)
 
 ### N & dt
 * N is the number of timesteps the model predicts ahead. A high value for N leads to a further prediction for the future.
