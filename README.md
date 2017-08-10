@@ -3,13 +3,15 @@ Self-Driving Car Engineer Nanodegree Program
 
 The goal of this project is to use model predictive control to drive a car in the simulator.
 
+### Visualization of Waypoints
+
 The lake_track_waypoints.csv file has the waypoints of the lake track. 
 
 First, I transformed these waypoints into vehicle space. The implementation of this step is in  [main.cpp line 113-123](https://github.com/christianreiser/Model-Predictive-Control-master/blob/master/src/main.cpp#L113). 
 
 After the transformation into vehicle space I fit a third order polynomial through the waypoints with the function `polyfit` [in line 128](https://github.com/christianreiser/Model-Predictive-Control-master/blob/master/src/main.cpp#L128).
 
-The fitted polynom of the waypoints is visualized in yellow and [implemented in line 160-168](https://github.com/christianreiser/Model-Predictive-Control-master/blob/master/src/main.cpp#L160).
+The fitted polynomial of the waypoints is visualized in yellow and [implemented in line 160-168](https://github.com/christianreiser/Model-Predictive-Control-master/blob/master/src/main.cpp#L160).
 
 To show how my model intends to drive I visualized the predicted trajectory in green. The [implementation is in line 152-158](https://github.com/christianreiser/Model-Predictive-Control-master/blob/master/src/main.cpp#L152).
 
