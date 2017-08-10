@@ -2,6 +2,7 @@
 Self-Driving Car Engineer Nanodegree Program
 
 The goal of this project is to use model predictive control to drive a car in the simulator.
+The lake_track_waypoints.csv file has the waypoints of the lake track. I transformed these waypoints into vehicle space and fit a third order polynomial to visualize how my model intends to drive (green) and where the center of the road is (yellow).
 
 ## MPC
 ### Model State and Update Equations (Vehicle Dynamics)
