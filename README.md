@@ -11,7 +11,7 @@ After the transformation into vehicle space I fit a third order polynomial throu
 
 The fitted polynom of the waypoints is visualized in yellow and [implemented in line 160-168)](https://github.com/christianreiser/Model-Predictive-Control-master/blob/master/src/main.cpp#L160).
 
-To show how my model intends to drive I visualized the predicted trajectory in green. The [implementation is in line 152-158](https://github.com/christianreiser/Model-Predictive-Control-master/blob/master/src/main.cpp).
+To show how my model intends to drive I visualized the predicted trajectory in green. The [implementation is in line 152-158](https://github.com/christianreiser/Model-Predictive-Control-master/blob/master/src/main.cpp#L152).
 
 ## MPC
 ### Model State and Update Equations (Vehicle Dynamics)
