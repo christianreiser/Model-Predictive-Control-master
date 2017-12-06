@@ -1,12 +1,3 @@
-/*
- * This project contains code from Udacity lessons and Quizzes
- * and was also inspired by Nikolay Falaleev
- * https://github.com/udacity/CarND-MPC-Quizzes
- * http://udacity.com/drive
- * https://github.com/NikolasEnt/PID-controller
- */
-
-
 #include "MPC.h"
 #include <cppad/cppad.hpp>
 #include <cppad/ipopt/solve.hpp>
